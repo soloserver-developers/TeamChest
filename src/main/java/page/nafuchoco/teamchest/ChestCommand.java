@@ -61,7 +61,8 @@ public class ChestCommand implements CommandExecutor {
                     List<ChestItem> items = chestsTable.getTeamChest(joinedTeam);
                     for (int i = 0; i < items.size(); i++) {
                         ChestItem item = items.get(i);
-                        TeamChest.getInstance().getLogger().info("ChestItem[" + i + "]: " + (item != null ? item.getItemStack().toString() + " (NBT: " + item.getNbtTag() + ")" : "Empty"));
+                        // Debug Code.
+                        // TeamChest.getInstance().getLogger().info("ChestItem[" + i + "]: " + (item != null ? item.getItemStack().toString() + " (NBT: " + item.getNbtTag() + ")" : "Empty"));
                         if (item != null) {
                             ItemStack itemStack = item.getItemStack();
                             net.minecraft.server.v1_16_R3.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);

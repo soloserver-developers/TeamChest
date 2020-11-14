@@ -17,6 +17,7 @@
 package page.nafuchoco.teamchest;
 
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.plugin.java.JavaPlugin;
 import page.nafuchoco.soloservercore.SoloServerApi;
 import page.nafuchoco.soloservercore.database.DatabaseConnector;
@@ -59,6 +60,7 @@ public final class TeamChest extends JavaPlugin {
         } catch (SQLException e) {
             getLogger().log(Level.WARNING, "An error occurred while initializing the database table.", e);
         }
+        ConfigurationSerialization.registerClass(ChestItem.class);
         getCommand("teamchest").setExecutor(new ChestCommand(chestsTable));
     }
 

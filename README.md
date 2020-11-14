@@ -10,7 +10,7 @@ TeamChestはSoloServerCore3のアドオンとして動作する共有チェス�
 - SoloServerCore 3.2.x ~
 
 ### Build
-このプラグインはnet.minecraftを使用しています。  
+このプラグインはnet.minecraft.serverを使用しています。  
 このため通常の環境ではプラグインをビルドすることはできません。  
 指定したバージョンでBuildToolsを実行した後にビルドを試行してください。
 
