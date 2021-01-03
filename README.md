@@ -1,21 +1,27 @@
 # TeamChest
+
 TeamChestはSoloServerCore3のアドオンとして動作する共有チェストプラグインです。  
 このプラグインはチームで共有できるインベントリを提供します。
 
 ## 動作要項
-- Spigot 1.16.4
+
+- Spigot 1.16.3
 - MySQL or MariaDB 5.x ~
 
 ### 前提プラグイン
+
 - SoloServerCore 3.2.x ~
 
 ### Build
+
 このプラグインはnet.minecraft.serverを使用しています。  
 このため通常の環境ではプラグインをビルドすることはできません。  
 指定したバージョンでBuildToolsを実行した後にビルドを試行してください。
 
 ## License
+
 This plugin is published under Apache License 2.0.
+
 ```
 Copyright 2020 NAFU_at.
 
