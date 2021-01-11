@@ -33,7 +33,7 @@ repositories {
 
 dependencies {
     compileOnly 'org.spigotmc:spigot:1.16.3-R0.1-SNAPSHOT'
-    compileOnly 'com.github.nafu-at:SoloServerCore3:3.3.0'
+    compileOnly 'com.github.soloserver-developers:SoloServerCore3:3.5.0'
 
     implementation 'org.projectlombok:lombok:1.18.14'
     annotationProcessor 'org.projectlombok:lombok:1.18.14'
