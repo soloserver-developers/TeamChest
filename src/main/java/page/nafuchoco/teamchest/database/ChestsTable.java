@@ -74,4 +74,14 @@ public class ChestsTable extends DatabaseTable {
             ps.execute();
         }
     }
+
+    public void deleteTeamChest(PlayersTeam team) throws SQLException {
+        try (Connection connection = getConnector().getConnection();
+             PreparedStatement ps = connection.prepareStatement(
+                     "DELETE FROM " + getTablename() + " WHERE id = ?"
+             )) {
+            ps.setString(1, team.getId().toString());
+            ps.execute();
+        }
+    }
 }

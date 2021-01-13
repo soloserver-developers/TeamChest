@@ -62,6 +62,7 @@ public final class TeamChest extends JavaPlugin {
         }
         ConfigurationSerialization.registerClass(ChestItem.class);
         getCommand("teamchest").setExecutor(new ChestCommand(chestsTable));
+        Bukkit.getPluginManager().registerEvents(new PlayersTeamDisappearanceEventListener(chestsTable), this);
     }
 
     @Override
