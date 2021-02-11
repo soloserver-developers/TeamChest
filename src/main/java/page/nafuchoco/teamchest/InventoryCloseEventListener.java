@@ -20,7 +20,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.craftbukkit.v1_16_R2.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_16_R3.inventory.CraftItemStack;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryCloseEvent;
@@ -53,7 +53,7 @@ public class InventoryCloseEventListener implements Listener {
             for (int i = 0; i < event.getView().getTopInventory().getSize(); i++) {
                 ItemStack itemStack = event.getView().getItem(i);
                 if (itemStack != null) {
-                    net.minecraft.server.v1_16_R2.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
+                    net.minecraft.server.v1_16_R3.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
                     String nbtString = null;
                     if (nmsStack.getTag() != null)
                         nbtString = nmsStack.getTag().toString();
