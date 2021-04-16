@@ -17,16 +17,16 @@
 package page.nafuchoco.teamchest;
 
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import net.minecraft.server.v1_16_R2.MojangsonParser;
-import net.minecraft.server.v1_16_R2.NBTBase;
-import net.minecraft.server.v1_16_R2.NBTTagCompound;
+import net.minecraft.server.v1_16_R3.MojangsonParser;
+import net.minecraft.server.v1_16_R3.NBTBase;
+import net.minecraft.server.v1_16_R3.NBTTagCompound;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.InvalidConfigurationException;
-import org.bukkit.craftbukkit.v1_16_R2.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_16_R3.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
@@ -65,7 +65,7 @@ public class ChestCommand implements CommandExecutor {
                         // TeamChest.getInstance().getLogger().info("ChestItem[" + i + "]: " + (item != null ? item.getItemStack().toString() + " (NBT: " + item.getNbtTag() + ")" : "Empty"));
                         if (item != null) {
                             ItemStack itemStack = item.getItemStack();
-                            net.minecraft.server.v1_16_R2.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
+                            net.minecraft.server.v1_16_R3.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
                             if (item.getNbtTag() != null) {
                                 NBTBase nbtBase = MojangsonParser.parse(item.getNbtTag());
                                 nmsStack.setTag((NBTTagCompound) nbtBase);
