@@ -31,7 +31,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
-import page.nafuchoco.soloservercore.team.PlayersTeam;
+import page.nafuchoco.soloservercore.data.PlayersTeam;
 import page.nafuchoco.teamchest.database.ChestsTable;
 
 import java.sql.SQLException;
@@ -54,7 +54,7 @@ public class ChestCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            PlayersTeam joinedTeam = TeamChest.getInstance().getSoloServerApi().getPlayerJoinedTeam(player.getUniqueId());
+            PlayersTeam joinedTeam = TeamChest.getInstance().getSoloServerApi().getPlayersTeam(player);
             if (joinedTeam != null) {
                 Inventory inventory = Bukkit.createInventory(null, 54, "TeamChest");
                 try {

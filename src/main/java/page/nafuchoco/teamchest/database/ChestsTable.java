@@ -19,9 +19,9 @@ package page.nafuchoco.teamchest.database;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
+import page.nafuchoco.soloservercore.data.PlayersTeam;
 import page.nafuchoco.soloservercore.database.DatabaseConnector;
 import page.nafuchoco.soloservercore.database.DatabaseTable;
-import page.nafuchoco.soloservercore.team.PlayersTeam;
 import page.nafuchoco.teamchest.ChestItem;
 
 import java.sql.Connection;

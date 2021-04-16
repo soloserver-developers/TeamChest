@@ -16,8 +16,6 @@
 
 package page.nafuchoco.teamchest;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.SneakyThrows;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.craftbukkit.v1_16_R3.inventory.CraftItemStack;
@@ -26,7 +24,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
-import page.nafuchoco.soloservercore.team.PlayersTeam;
+import page.nafuchoco.soloservercore.data.PlayersTeam;
 import page.nafuchoco.teamchest.database.ChestsTable;
 
 import java.sql.SQLException;
@@ -38,14 +36,12 @@ import java.util.logging.Level;
 public class InventoryCloseEventListener implements Listener {
     private final ChestsTable chestsTable;
     private final Map<InventoryView, PlayersTeam> openedInventory;
-    private final ObjectMapper mapper = new ObjectMapper();
 
     public InventoryCloseEventListener(Map<InventoryView, PlayersTeam> openedInventory, ChestsTable chestsTable) {
         this.openedInventory = openedInventory;
         this.chestsTable = chestsTable;
     }
 
-    @SneakyThrows
     @EventHandler
     public void onInventoryCloseEvent(InventoryCloseEvent event) {
         if (openedInventory.containsKey(event.getView())) {
