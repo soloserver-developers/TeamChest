@@ -31,7 +31,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
-import page.nafuchoco.soloservercore.team.PlayersTeam;
+import page.nafuchoco.soloservercore.data.PlayersTeam;
 import page.nafuchoco.teamchest.database.ChestsTable;
 
 import java.sql.SQLException;
@@ -54,7 +54,7 @@ public class ChestCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            PlayersTeam joinedTeam = TeamChest.getInstance().getSoloServerApi().getPlayerJoinedTeam(player.getUniqueId());
+            PlayersTeam joinedTeam = TeamChest.getInstance().getSoloServerApi().getPlayersTeam(player);
             if (joinedTeam != null) {
                 Inventory inventory = Bukkit.createInventory(null, 54, "TeamChest");
                 try {
@@ -64,13 +64,14 @@ public class ChestCommand implements CommandExecutor {
                         // Debug Code.
                         // TeamChest.getInstance().getLogger().info("ChestItem[" + i + "]: " + (item != null ? item.getItemStack().toString() + " (NBT: " + item.getNbtTag() + ")" : "Empty"));
                         if (item != null) {
+                            int itemIndex = item.getIndex() != -1 ? item.getIndex() : i; // 後方互換性維持のためのコード
                             ItemStack itemStack = item.getItemStack();
                             net.minecraft.server.v1_16_R3.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
                             if (item.getNbtTag() != null) {
                                 NBTBase nbtBase = MojangsonParser.parse(item.getNbtTag());
                                 nmsStack.setTag((NBTTagCompound) nbtBase);
                             }
-                            inventory.setItem(i, CraftItemStack.asBukkitCopy(nmsStack));
+                            inventory.setItem(itemIndex, CraftItemStack.asBukkitCopy(nmsStack));
                         }
                     }
                     InventoryView inventoryView = player.openInventory(inventory);

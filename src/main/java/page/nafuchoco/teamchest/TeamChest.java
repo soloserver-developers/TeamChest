@@ -48,7 +48,7 @@ public final class TeamChest extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        soloServerApi = SoloServerApi.getSoloServerApi();
+        soloServerApi = SoloServerApi.getInstance();
         connector = new DatabaseConnector(getCoreConfig().getInitConfig().getDatabaseType(),
                 getCoreConfig().getInitConfig().getAddress() + ":" + getCoreConfig().getInitConfig().getPort(),
                 getCoreConfig().getInitConfig().getDatabase(),
