@@ -27,18 +27,21 @@ import java.util.Map;
 @AllArgsConstructor
 @Data
 public class ChestItem implements ConfigurationSerializable {
+    private final int index;
     private final ItemStack itemStack;
     private final String nbtTag;
 
     @Override
     public Map<String, Object> serialize() {
         Map<String, Object> serializedMap = new LinkedHashMap<>();
+        serializedMap.put("index", index);
         serializedMap.put("itemStack", itemStack);
         serializedMap.put("nbtTag", nbtTag);
         return serializedMap;
     }
 
     public static ChestItem deserialize(Map<String, Object> args) {
-        return new ChestItem((ItemStack) args.get("itemStack"), (String) args.get("nbtTag"));
+        int index = args.get("index") != null ? (int) args.get("index") : -1;
+        return new ChestItem(index, (ItemStack) args.get("itemStack"), (String) args.get("nbtTag"));
     }
 }

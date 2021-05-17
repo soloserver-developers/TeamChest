@@ -53,9 +53,7 @@ public class InventoryCloseEventListener implements Listener {
                     String nbtString = null;
                     if (nmsStack.getTag() != null)
                         nbtString = nmsStack.getTag().toString();
-                    items.add(new ChestItem(itemStack, nbtString));
-                } else {
-                    items.add(null);
+                    items.add(new ChestItem(i, itemStack, nbtString));
                 }
             }
             try {

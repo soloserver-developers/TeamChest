@@ -64,13 +64,14 @@ public class ChestCommand implements CommandExecutor {
                         // Debug Code.
                         // TeamChest.getInstance().getLogger().info("ChestItem[" + i + "]: " + (item != null ? item.getItemStack().toString() + " (NBT: " + item.getNbtTag() + ")" : "Empty"));
                         if (item != null) {
+                            int itemIndex = item.getIndex() != -1 ? item.getIndex() : i; // 後方互換性維持のためのコード
                             ItemStack itemStack = item.getItemStack();
                             net.minecraft.server.v1_16_R3.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
                             if (item.getNbtTag() != null) {
                                 NBTBase nbtBase = MojangsonParser.parse(item.getNbtTag());
                                 nmsStack.setTag((NBTTagCompound) nbtBase);
                             }
-                            inventory.setItem(i, CraftItemStack.asBukkitCopy(nmsStack));
+                            inventory.setItem(itemIndex, CraftItemStack.asBukkitCopy(nmsStack));
                         }
                     }
                     InventoryView inventoryView = player.openInventory(inventory);
