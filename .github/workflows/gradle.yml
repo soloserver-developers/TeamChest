@@ -24,5 +24,11 @@ jobs:
         distribution: 'adopt'
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+    - name: Set up Spigot NMS
+      uses: derongan/nmsaction@v1
+      with:
+        rev: 1.17
+    - name: Install nms into m2
+      run: mkdir -p $HOME/.m2/repository && cp -a nms-build/.m2/repository/. $HOME/.m2/repository
     - name: Build with Gradle
       run: ./gradlew build
