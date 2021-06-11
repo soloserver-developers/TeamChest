@@ -5,12 +5,12 @@ TeamChestはSoloServerCore3のアドオンとして動作する共有チェス�
 
 ## 動作要項
 
-- Spigot 1.16.5
+- Spigot 1.17.x
 - MySQL or MariaDB 5.x ~
 
 ### 前提プラグイン
 
-- SoloServerCore 3.2.x ~
+- SoloServerCore 4.x ~
 
 ### Build
 
