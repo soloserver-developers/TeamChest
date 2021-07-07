@@ -26,8 +26,6 @@ import page.nafuchoco.teamchest.database.ChestsTable;
 import java.sql.SQLException;
 import java.util.logging.Level;
 
-import static page.nafuchoco.soloservercore.SoloServerCore.getCoreConfig;
-
 public final class TeamChest extends JavaPlugin {
     private static TeamChest instance;
 
@@ -49,11 +47,7 @@ public final class TeamChest extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         soloServerApi = SoloServerApi.getInstance();
-        connector = new DatabaseConnector(getCoreConfig().getInitConfig().getDatabaseType(),
-                getCoreConfig().getInitConfig().getAddress() + ":" + getCoreConfig().getInitConfig().getPort(),
-                getCoreConfig().getInitConfig().getDatabase(),
-                getCoreConfig().getInitConfig().getUsername(),
-                getCoreConfig().getInitConfig().getPassword());
+        connector = getSoloServerApi().getDatabaseConnector();
         chestsTable = new ChestsTable(connector);
         try {
             chestsTable.createTable();
