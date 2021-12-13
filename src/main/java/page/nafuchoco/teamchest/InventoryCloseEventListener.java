@@ -18,7 +18,7 @@ package page.nafuchoco.teamchest;
 
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.craftbukkit.v1_17_R1.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_18_R1.inventory.CraftItemStack;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryCloseEvent;
@@ -51,8 +51,8 @@ public class InventoryCloseEventListener implements Listener {
                 if (itemStack != null) {
                     net.minecraft.world.item.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
                     String nbtString = null;
-                    if (nmsStack.getTag() != null)
-                        nbtString = nmsStack.getTag().toString();
+                    if (nmsStack.s() != null)
+                        nbtString = nmsStack.s().toString();
                     items.add(new ChestItem(i, itemStack, nbtString));
                 }
             }

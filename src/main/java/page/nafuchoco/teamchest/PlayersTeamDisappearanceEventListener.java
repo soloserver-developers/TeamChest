@@ -18,7 +18,7 @@ package page.nafuchoco.teamchest;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import page.nafuchoco.soloservercore.event.PlayersTeamDisappearanceEvent;
+import page.nafuchoco.soloservercore.event.team.PlayersTeamDisappearanceEvent;
 import page.nafuchoco.teamchest.database.ChestsTable;
 
 import java.sql.SQLException;
