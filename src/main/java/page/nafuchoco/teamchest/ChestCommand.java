@@ -17,16 +17,15 @@
 package page.nafuchoco.teamchest;
 
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import net.minecraft.nbt.MojangsonParser;
-import net.minecraft.nbt.NBTBase;
-import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.TagParser;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.InvalidConfigurationException;
-import org.bukkit.craftbukkit.v1_18_R1.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_19_R1.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
@@ -68,8 +67,8 @@ public class ChestCommand implements CommandExecutor {
                             ItemStack itemStack = item.getItemStack();
                             net.minecraft.world.item.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
                             if (item.getNbtTag() != null) {
-                                NBTBase nbtBase = MojangsonParser.a(item.getNbtTag());
-                                nmsStack.c((NBTTagCompound) nbtBase);
+                                CompoundTag nbtBase = TagParser.parseTag(item.getNbtTag());
+                                nmsStack.setTag(nbtBase);
                             }
                             inventory.setItem(itemIndex, CraftItemStack.asBukkitCopy(nmsStack));
                         }
