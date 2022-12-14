@@ -1,14 +1,9 @@
 name: TeamChest
 version: @version@
-main: page.nafuchoco.teamchest.TeamChest
+main: dev.nafusoft.teamchest.TeamChest
 api-version: 1.16
 prefix: TeamChest
 depend: [ SoloServerCore ]
 authors: [ NAFU_at ]
 description: Provide a shareable chest for your team.
 website: https://toybox.nafuchoco.page/
-
-commands:
-  teamchest:
-    description: Open Team Chest.
-    aliases: [ chest ]

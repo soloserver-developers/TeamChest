@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'page.nafuchoco'
-version = '1.7.0'
+version = '2.0.0-Migrate.1'
 
 java {
     toolchain {
@@ -37,13 +37,13 @@ repositories {
 
 dependencies {
     paperweightDevelopmentBundle("io.papermc.paper:dev-bundle:1.19-R0.1-SNAPSHOT")
-    compileOnly 'com.github.soloserver-developers:SoloServerCore3:5.0.0'
+    //compileOnly 'com.github.soloserver-developers:SoloServerCore3:5.0.0'
+    compileOnly 'dev.nafusoft:SoloServerCore:6.0.0-Beta.1'
 
     implementation 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 
-    implementation 'com.fasterxml.jackson.core:jackson-core:2.13.3'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.3'
+    compileOnly 'com.zaxxer:HikariCP:5.0.1'
 }
 
 processResources {
